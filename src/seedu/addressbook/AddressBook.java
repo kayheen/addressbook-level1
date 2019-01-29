@@ -594,7 +594,7 @@ public class AddressBook {
      * Prints a welcome message that specifies which address book this program is in.
      */
     private static String printWelcomeMessage() {
-        return "Welcome to Address Book 1! \n" + "   Please input your command to create a list.";
+        return "Welcome to Address Book 1!" ;
     }
 
     /*
