@@ -98,6 +98,7 @@ public class AddressBook {
     private static final String PERSON_STRING_REPRESENTATION = "%1$s " // name
                                                             + PERSON_DATA_PREFIX_PHONE + "%2$s " // phone
                                                             + PERSON_DATA_PREFIX_EMAIL + "%3$s"; // email
+    private static final String COMMAND_WELCOME_MESSAGE = "welcome";
     private static final String COMMAND_ADD_WORD = "add";
     private static final String COMMAND_ADD_DESC = "Adds a person to the address book.";
     private static final String COMMAND_ADD_PARAMETERS = "NAME "
@@ -132,6 +133,7 @@ public class AddressBook {
     private static final String COMMAND_EXIT_WORD = "exit";
     private static final String COMMAND_EXIT_DESC = "Exits the program.";
     private static final String COMMAND_EXIT_EXAMPLE = COMMAND_EXIT_WORD;
+
 
     private static final String DIVIDER = "===================================================";
 
@@ -383,6 +385,8 @@ public class AddressBook {
             return getUsageInfoForAllCommands();
         case COMMAND_EXIT_WORD:
             executeExitProgramRequest();
+        case COMMAND_WELCOME_MESSAGE:
+            return printWelcomeMessage();
         default:
             return getMessageForInvalidCommandInput(commandType, getUsageInfoForAllCommands());
         }
@@ -584,6 +588,13 @@ public class AddressBook {
      */
     private static void executeExitProgramRequest() {
         exitProgram();
+    }
+
+    /**
+     * Prints a welcome message that specifies which address book this program is in.
+     */
+    private static String printWelcomeMessage() {
+        return "Welcome to Address Book 1!";
     }
 
     /*
@@ -1050,6 +1061,7 @@ public class AddressBook {
     private static boolean isPersonNameValid(String name) {
         return name.matches("(\\w|\\s)+");  // name is nonempty mixture of alphabets and whitespace
         //TODO: implement a more permissive validation
+        //return name.matches("\\D");
     }
 
     /**
